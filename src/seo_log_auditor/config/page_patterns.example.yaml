@@ -1,0 +1,26 @@
+# Page-type classification rules. First match wins.
+# `match` is a Python regex applied to the URL path + query string
+# (e.g. "/products/foo?color=red"). Edit for your URL structure and
+# upload via the Streamlit sidebar.
+
+patterns:
+  - name: home
+    match: "^/?$"
+  - name: product
+    match: "^/products/[^/?]+/?$"
+  - name: category
+    match: "^/category/"
+  - name: blog
+    match: "^/blog/"
+  - name: search
+    match: "^/search"
+  - name: api
+    match: "^/api/"
+  - name: paginated
+    match: "[?&]page="
+  - name: faceted
+    match: "[?&](sort|color|size|filter|price|brand)="
+  - name: session_param
+    match: "[?&](sessionid|sid|phpsessid|utm_)"
+
+default: other

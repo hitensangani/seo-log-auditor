@@ -1,0 +1,38 @@
+{
+  "data": {
+    "resultType": "streams",
+    "result": [
+      {
+        "stream": {
+          "app": "ingress-nginx"
+        },
+        "values": [
+          [
+            "1714816200000000000",
+            "66.249.66.1 - - [04/May/2026:09:30:00 +0000] \"GET /products/widget-1 HTTP/1.1\" 200 12345 \"-\" \"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)\" 542 0.123"
+          ],
+          [
+            "1714816260000000000",
+            "66.249.66.2 - - [04/May/2026:09:31:00 +0000] \"GET /products/widget-2?color=red HTTP/1.1\" 200 14000 \"-\" \"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)\" 600 0.250"
+          ],
+          [
+            "1714816320000000000",
+            "66.249.66.3 - - [04/May/2026:09:32:00 +0000] \"GET /category/widgets?page=2 HTTP/1.1\" 301 0 \"-\" \"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)\" 110 0.005"
+          ],
+          [
+            "1714816380000000000",
+            "66.249.66.4 - - [04/May/2026:09:33:00 +0000] \"GET /old-landing-page HTTP/1.1\" 404 512 \"-\" \"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)\" 80 0.010"
+          ],
+          [
+            "1714816440000000000",
+            "1.2.3.4 - - [04/May/2026:09:34:00 +0000] \"GET /admin HTTP/1.1\" 200 1024 \"-\" \"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)\" 90 0.030"
+          ],
+          [
+            "1714816500000000000",
+            "66.249.66.5 - - [04/May/2026:09:35:00 +0000] \"GET /products/widget-3?sort=price&color=blue&size=lg HTTP/1.1\" 200 11000 \"-\" \"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)\" 700 0.180"
+          ]
+        ]
+      }
+    ]
+  }
+}

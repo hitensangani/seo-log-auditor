@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.whl
+*.tar.gz
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / IDE
+.idea/
+.vscode/
+*.swp
+
+# User data that should never be committed
+*.log
+*.jsonl
+*.ndjson
+googlebot_logs*
+access_*.log
+nginx_*.log
+page_patterns.yaml
+!src/seo_log_auditor/config/page_patterns.example.yaml
+
+# Environment
+.env
+.env.local
