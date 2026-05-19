@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 import requests
 
 _SM_NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
-_USER_AGENT = "seo-log-auditor/0.1.1 (+https://github.com/hitensangani/seo-log-auditor)"
+_USER_AGENT = "seo-log-auditor/0.1.2 (+https://github.com/hitensangani/seo-log-auditor)"
 _TIMEOUT = 30
 
 

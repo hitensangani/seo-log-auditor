@@ -1,3 +1,7 @@
 [server]
-# Default is 200 MB; bumped so a 30-day Loki export (~210 MB) just fits.
-maxUploadSize = 210
+# Streamlit's default is 200 MB. We bump to 500 MB so 30-day Loki exports
+# (~210 MB typical, but can be larger for chatty ingress) fit with headroom.
+# This file only takes effect when running `streamlit run` from a clone of
+# the repo — when installed from PyPI, the same default is set in cli.py
+# and is overridable via the SEO_LOG_AUDITOR_MAX_UPLOAD_MB env var.
+maxUploadSize = 500

@@ -6,14 +6,18 @@ package and hands control to Streamlit's own CLI. Any extra arguments after
 
 Examples
 --------
-    seo-log-auditor                        # default port 8501
-    seo-log-auditor --server.port 9000     # forward Streamlit flags
+    seo-log-auditor                                   # default port 8501, 500 MB upload cap
+    seo-log-auditor --server.port 9000                # forward Streamlit flags
+    SEO_LOG_AUDITOR_MAX_UPLOAD_MB=1024 seo-log-auditor  # 1 GB upload cap
 """
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
+
+DEFAULT_MAX_UPLOAD_MB = "500"
 
 
 def _bundled_app_path() -> Path:
@@ -39,7 +43,17 @@ def main() -> None:
         )
         raise SystemExit(1)
 
-    sys.argv = ["streamlit", "run", str(app_path), *sys.argv[1:]]
+    extra_args = list(sys.argv[1:])
+
+    # The .streamlit/config.toml at the repo root never makes it into the
+    # wheel, so we can't rely on it for end users. Inject a generous default
+    # upload cap here. Users override either with the explicit Streamlit flag
+    # or with the SEO_LOG_AUDITOR_MAX_UPLOAD_MB env var.
+    if not any(a.startswith("--server.maxUploadSize") for a in extra_args):
+        max_mb = os.environ.get("SEO_LOG_AUDITOR_MAX_UPLOAD_MB", DEFAULT_MAX_UPLOAD_MB)
+        extra_args = ["--server.maxUploadSize", max_mb, *extra_args]
+
+    sys.argv = ["streamlit", "run", str(app_path), *extra_args]
     sys.exit(stcli.main())
 
 

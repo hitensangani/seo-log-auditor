@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "seo-log-auditor"
-version = "0.1.1"
+version = "0.1.2"
 description = "SEO crawl-audit Streamlit dashboard for nginx-ingress Googlebot logs"
 readme = "README.md"
 requires-python = ">=3.11"
